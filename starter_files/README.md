@@ -39,6 +39,9 @@ The result shows the best model is a voting ensamble
 #### Best model
 The best model is a voting ensemble, wit 0.947 AUC, which is surprisingly high.
 ![image](https://user-images.githubusercontent.com/81808810/117370369-94e93080-aec6-11eb-84a8-45af03b72fad.png)
+#### Model explanation
+![image](https://user-images.githubusercontent.com/81808810/117375729-e813b100-aecf-11eb-9d3c-aefc3d387261.png)
+
 
 ### Deploying the model
 #### Selecting best model from code
@@ -50,6 +53,21 @@ Azure generates an entry script automatically, so directly deploying the model f
 ![image](https://user-images.githubusercontent.com/81808810/117372526-f5c63800-aec9-11eb-87e1-d771f7a4781c.png)
 #### Enabling authentication and using ACI 
 ![image](https://user-images.githubusercontent.com/81808810/117372735-4f2e6700-aeca-11eb-9ffc-3e0f294404c0.png)
+#### Deployment successful
+![image](https://user-images.githubusercontent.com/81808810/117372895-94eb2f80-aeca-11eb-8ebf-edab0eb3fb7e.png)
+
+### Enabling Application Insights
+#### Ensure az installed
+![image](https://user-images.githubusercontent.com/81808810/117373357-5b66f400-aecb-11eb-9704-cc18269a1348.png)
+#### Ensure python SDK for azure is installed with ipython
+![image](https://user-images.githubusercontent.com/81808810/117373617-e1833a80-aecb-11eb-8895-94504ffe149d.png)
+#### Create virtual environment
+![image](https://user-images.githubusercontent.com/81808810/117373931-79812400-aecc-11eb-8cae-89fe8a451621.png)
+#### Enabling application insights from code
+![image](https://user-images.githubusercontent.com/81808810/117374279-278cce00-aecd-11eb-853d-e3316e348ef6.png)
+#### Proof for application insights being enabled
+![image](https://user-images.githubusercontent.com/81808810/117374333-49865080-aecd-11eb-8695-99c785bde563.png)
+
 
 
 
