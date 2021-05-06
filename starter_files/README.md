@@ -16,7 +16,44 @@ The task is creating an automated environment for a bank marketing campaign, whi
 
 ## Key Steps
 *TODO*: Write a short discription of the key steps. Remeber to include all the screenshots required to demonstrate key steps. 
-### Auto ML Model 
+### Auto ML Experiment
+#### Registered dataset is available
+The registered dataset is available, there was no need to import it from the code, from web location, however the name needed to be adjusted.
+##### Code call
+![image](https://user-images.githubusercontent.com/81808810/117368887-6bc7a080-aec4-11eb-9d21-89c9e41ea18d.png)
+##### Availability proof: In workspace
+![image](https://user-images.githubusercontent.com/81808810/117365514-abd85480-aebf-11eb-99c9-fc53af1378ab.png)
+##### Availability proof: In code, with head check
+![image](https://user-images.githubusercontent.com/81808810/117365418-8b0fff00-aebf-11eb-970a-20d6938a5a6e.png)
+#### Experiment is shown as completed
+##### Auto ML Config
+The explain best model's paramater's default value is True, however I am setting that up explicitly as a proof.
+![image](https://user-images.githubusercontent.com/81808810/117369031-a3364d00-aec4-11eb-98cd-c07a0b628392.png)
+##### Auto ML Run shows completed in the code
+![image](https://user-images.githubusercontent.com/81808810/117369748-a847cc00-aec5-11eb-84d3-1b0b17c0c197.png)
+##### In notebook programmatically: Auto ML Runs generator has the copleted item as a most recent element
+![image](https://user-images.githubusercontent.com/81808810/117369826-c7465e00-aec5-11eb-9b52-35d2f30e8951.png)
+##### In workspace
+The result shows the best model is a voting ensamble
+![image](https://user-images.githubusercontent.com/81808810/117369908-e349ff80-aec5-11eb-8597-d91757da1c71.png)
+#### Best model
+The best model is a voting ensemble, wit 0.947 AUC, which is surprisingly high.
+![image](https://user-images.githubusercontent.com/81808810/117370369-94e93080-aec6-11eb-84a8-45af03b72fad.png)
+
+### Deploying the model
+#### Selecting best model from code
+![image](https://user-images.githubusercontent.com/81808810/117371173-ba2a6e80-aec7-11eb-9bac-2b25ad959501.png)
+#### Registering model
+![image](https://user-images.githubusercontent.com/81808810/117371540-581e3900-aec8-11eb-929d-38b0ecf47db4.png)
+#### Deploying model directly from best run
+Azure generates an entry script automatically, so directly deploying the model from the run info will not require entry script.
+![image](https://user-images.githubusercontent.com/81808810/117372526-f5c63800-aec9-11eb-87e1-d771f7a4781c.png)
+#### Enabling authentication and using ACI 
+![image](https://user-images.githubusercontent.com/81808810/117372735-4f2e6700-aeca-11eb-9ffc-3e0f294404c0.png)
+
+
+
+
 ### Model deployment
 ### Logging and monitoring
 ### Enpoint consumption
