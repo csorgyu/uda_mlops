@@ -64,16 +64,14 @@ Azure generates an entry script automatically, so directly deploying the model f
 #### Create virtual environment
 ![image](https://user-images.githubusercontent.com/81808810/117373931-79812400-aecc-11eb-8cae-89fe8a451621.png)
 #### Enabling application insights from code
-![image](https://user-images.githubusercontent.com/81808810/117374279-278cce00-aecd-11eb-853d-e3316e348ef6.png)
+![image](https://user-images.githubusercontent.com/81808810/117376714-02e72500-aed2-11eb-839f-58d029b1169d.png)
+
 #### Proof for application insights being enabled
-![image](https://user-images.githubusercontent.com/81808810/117374333-49865080-aecd-11eb-8695-99c785bde563.png)
 
 
 
 
 
-### Model deployment
-### Logging and monitoring
 ### Enpoint consumption
 ### ML pipeline
 ### Documentation
