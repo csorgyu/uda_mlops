@@ -67,12 +67,25 @@ Azure generates an entry script automatically, so directly deploying the model f
 ![image](https://user-images.githubusercontent.com/81808810/117376714-02e72500-aed2-11eb-839f-58d029b1169d.png)
 
 #### Proof for application insights being enabled
+Healthy endpoint
+![image](https://user-images.githubusercontent.com/81808810/117377062-b05a3880-aed2-11eb-8b25-d35e6fe3c12c.png)
 
+And enabled application insights
+![image](https://user-images.githubusercontent.com/81808810/117377114-c7008f80-aed2-11eb-8f6e-e1b5eacc90c1.png)
+
+#### Proof in the logs.py output
+![image](https://user-images.githubusercontent.com/81808810/117377284-35dde880-aed3-11eb-8382-15b54cef0f83.png)
+
+#### Checking Apache Benchmark
+![image](https://user-images.githubusercontent.com/81808810/117378196-324b6100-aed5-11eb-9fd7-6db81494cd9d.png)
 
 
 
 
 ### Enpoint consumption
+#### Proof of running against the endpoint
+![image](https://user-images.githubusercontent.com/81808810/117378064-f7e1c400-aed4-11eb-8246-63be2e056329.png)
+
 ### ML pipeline
 ### Documentation
 
