@@ -82,7 +82,15 @@ And enabled application insights
 #### Checking Apache Benchmark
 ![image](https://user-images.githubusercontent.com/81808810/117378196-324b6100-aed5-11eb-9fd7-6db81494cd9d.png)
 
+### Documentation
+#### Swagger runs locally and shows the API details
+![image](https://user-images.githubusercontent.com/81808810/117543197-13a3b200-b01c-11eb-8981-b545e5ce4213.png)
 
+#### Response codes
+![image](https://user-images.githubusercontent.com/81808810/117543221-27e7af00-b01c-11eb-94fa-c9d00505e590.png)
+
+#### HTTP Client
+![image](https://user-images.githubusercontent.com/81808810/117543253-42218d00-b01c-11eb-82b2-8bbe077aa8c8.png)
 
 
 ### Enpoint consumption
@@ -91,16 +99,40 @@ And enabled application insights
 
 ### ML pipeline
 #### Pipeline has been created
+![image](https://user-images.githubusercontent.com/81808810/117543114-bad41980-b01b-11eb-8bfa-3627ec86d732.png)
+
 
 #### Pipeline endpoint has been created
+##### From UI
+![image](https://user-images.githubusercontent.com/81808810/117543341-afcdb900-b01c-11eb-9ebb-9c82df14bb6c.png)
+##### From code
+![image](https://user-images.githubusercontent.com/81808810/117543446-32ef0f00-b01d-11eb-999e-886cafb6debf.png)
+
 
 #### Dataset and Aut ML module
+![image](https://user-images.githubusercontent.com/81808810/117543297-7eed8400-b01c-11eb-83cb-9ebb6d3b211c.png)
+
 
 #### REST API Active status
+![image](https://user-images.githubusercontent.com/81808810/117543353-c07e2f00-b01c-11eb-901b-b91fd9ba97b5.png)
 
-#### Jupyter
+
+#### Jupyter steps
+![image](https://user-images.githubusercontent.com/81808810/117543635-f2dc5c00-b01d-11eb-9b12-961b0466d170.png)
+
+![image](https://user-images.githubusercontent.com/81808810/117543650-025ba500-b01e-11eb-93bc-2d1b6261937e.png)
+
+
+
 
 #### Scheduled run
+##### Code triggered run finished
+![image](https://user-images.githubusercontent.com/81808810/117543533-88c3b700-b01d-11eb-813b-3ebafabc7131.png)
+
+![image](https://user-images.githubusercontent.com/81808810/117543558-a3962b80-b01d-11eb-844f-7c616367c8a1.png)
+
+![image](https://user-images.githubusercontent.com/81808810/117543592-cc1e2580-b01d-11eb-9044-2f7370ad444a.png)
+
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
