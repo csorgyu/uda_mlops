@@ -168,6 +168,8 @@ And enabled application insights
 #### Scheduled run
 ![image](https://user-images.githubusercontent.com/81808810/117545655-ff18e700-b026-11eb-9d0a-d07cfbe88c9f.png)
 
+![image](https://user-images.githubusercontent.com/81808810/117545763-72baf400-b027-11eb-9889-067877000f1f.png)
+
 
 ## Screen Recording
 *https://youtu.be/1HxDKyLO73k
