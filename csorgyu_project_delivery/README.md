@@ -90,7 +90,17 @@ And enabled application insights
 ![image](https://user-images.githubusercontent.com/81808810/117378064-f7e1c400-aed4-11eb-8246-63be2e056329.png)
 
 ### ML pipeline
-### Documentation
+#### Pipeline has been created
+
+#### Pipeline endpoint has been created
+
+#### Dataset and Aut ML module
+
+#### REST API Active status
+
+#### Jupyter
+
+#### Scheduled run
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
