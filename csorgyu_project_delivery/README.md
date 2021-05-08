@@ -132,7 +132,12 @@ And enabled application insights
 ![image](https://user-images.githubusercontent.com/81808810/117378064-f7e1c400-aed4-11eb-8246-63be2e056329.png)
 
 ### ML pipeline
-* AutoML pipeline is used for a reproducible 
+* AutoML pipeline is used for a reproducible trainings, this is very useful, if we want to control model decay
+* Batch inference pipelines can be set up and retraining ones as well
+* The current implementation is a retraining pipeline, that runs every 24 hours
+* The pipeline is created from code, can be verified from the UI
+* The video shows the details of the pipeline being deployed.
+* The screenshots below show, that the retraining is scheduled
 #### Pipeline has been created
 ![image](https://user-images.githubusercontent.com/81808810/117543114-bad41980-b01b-11eb-8bfa-3627ec86d732.png)
 
@@ -176,5 +181,6 @@ And enabled application insights
 
 ## Standout Suggestions
 Future improvement steps:
+* The models could be used in batch inference pipelines, this is not covered
 * Detailed model monitoring based on Application Insights
 * Load testing
