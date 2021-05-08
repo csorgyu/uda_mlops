@@ -135,7 +135,9 @@ And enabled application insights
 
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+*https://youtu.be/1HxDKyLO73k
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+Future improvement steps:
+* Detailed model monitoring based on Application Insights
+* Load testing
