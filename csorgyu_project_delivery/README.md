@@ -1,4 +1,3 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
 
 # Automating Bank Marketing Campaign Inference Environment
@@ -12,14 +11,46 @@ The task is creating an automated environment for a bank marketing campaign, whi
 
 
 ## Architectural Diagram
-*TODO*: Provide an architectual diagram of the project and give an introduction of each step. An architectural diagram is an image that helps visualize the flow of operations from start to finish. In this case, it has to be related to the completed project, with its various stages that are critical to the overall flow. For example, one stage for managing models could be "using Automated ML to determine the best model".
+During the project I was using the udacity lab environment, which is a virtualized wondows desktop in Azure.
+The Azure ML Studio is available from here through the browser, authentication is set up for me.
+The first thing to do is create a compute instance to run the ipython code on.
+From here I can create Compute clusters for training by code.
+I created one with 4 running nodes
+The results of automated ML runs (metrics, run details, logs and pickle files in the first place) are generated on the blob storage associated to the Workspace.
+The Workspace is a PaaS service and encapsulates model registry, endpoint management, studio and other features for developer and admins.
+Most of the steps have been created by ipython, the real time deployment was more convenient from the UI.
+The real time deployment is hosted by ACI with Authentication enabled feature.
+The monitoring is done by Application Insights
+
+The endpoint test scripts are run from the virtualized desktop.
+The swagger local instance and the HTTP Client is running here, swagger running on port 8000, the HTTP client on 9001, more details below.
+The architectural diagram below shows the high level setup
 
 ![image](https://user-images.githubusercontent.com/81808810/117540007-69bd2900-b00d-11eb-9294-8bef8b683b95.png)
 
 
-## Key Steps
-*TODO*: Write a short discription of the key steps. Remeber to include all the screenshots required to demonstrate key steps. 
+## Key Steps 
 ### Auto ML Experiment
+When setting up an AutoML experiment we need to 
+* Ensure the dataset we want to use is registered in the ML Workspace
+* We have a compute instance where we can run the AutoML steps on
+* Define Auto ML config
+  * The key metric needs to be set, to compare runs, here it is AUC Weighted, as this is a classification problem
+  * The timeout to save resources
+  * Training dataset
+  * Target variable column name mapping
+  * Early stopping
+  * Format of the model (onnx compatible as an example)
+  * Featurization setup
+* Maximum number of nodes need to be adjusted to the compute cluster size
+* The best model can be selected multiple ways, I did it on the UI, and deployed the real time endpoint from the AML UI
+* After deployment, when status is not finally transitioning, the Application Insights can be enabled
+* The service can be consumed through the endpoint defined and the UI helps with the access token
+* The test was done by the modified endpoint.py
+* With swagger the details of the service endpoint can be checked
+  * Input format with example payload
+  * Request structure
+* Based on this load test can be done
 #### Registered dataset is available
 The registered dataset is available, there was no need to import it from the code, from web location, however the name needed to be adjusted.
 ##### Code call
@@ -86,6 +117,9 @@ And enabled application insights
 #### Swagger runs locally and shows the API details
 ![image](https://user-images.githubusercontent.com/81808810/117543197-13a3b200-b01c-11eb-8981-b545e5ce4213.png)
 
+#### Swagger logs
+![image](https://user-images.githubusercontent.com/81808810/117545272-50c07200-b025-11eb-8bbe-a0e3628d9df1.png)
+
 #### Response codes
 ![image](https://user-images.githubusercontent.com/81808810/117543221-27e7af00-b01c-11eb-94fa-c9d00505e590.png)
 
@@ -98,6 +132,7 @@ And enabled application insights
 ![image](https://user-images.githubusercontent.com/81808810/117378064-f7e1c400-aed4-11eb-8246-63be2e056329.png)
 
 ### ML pipeline
+* AutoML pipeline is used for a reproducible 
 #### Pipeline has been created
 ![image](https://user-images.githubusercontent.com/81808810/117543114-bad41980-b01b-11eb-8bfa-3627ec86d732.png)
 
@@ -122,16 +157,16 @@ And enabled application insights
 
 ![image](https://user-images.githubusercontent.com/81808810/117543650-025ba500-b01e-11eb-93bc-2d1b6261937e.png)
 
-
-
-
-#### Scheduled run
 ##### Code triggered run finished
 ![image](https://user-images.githubusercontent.com/81808810/117543533-88c3b700-b01d-11eb-813b-3ebafabc7131.png)
 
 ![image](https://user-images.githubusercontent.com/81808810/117543558-a3962b80-b01d-11eb-844f-7c616367c8a1.png)
 
 ![image](https://user-images.githubusercontent.com/81808810/117543592-cc1e2580-b01d-11eb-9044-2f7370ad444a.png)
+
+
+#### Scheduled run
+![image](https://user-images.githubusercontent.com/81808810/117545655-ff18e700-b026-11eb-9d0a-d07cfbe88c9f.png)
 
 
 ## Screen Recording
