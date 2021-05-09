@@ -261,6 +261,8 @@ Key elements:
 #### Swagger logs
 ![image](https://user-images.githubusercontent.com/81808810/117545272-50c07200-b025-11eb-8bbe-a0e3628d9df1.png)
 
+* swagger logs can be checked on the docker desktop for the given active image
+* The docker desktop gives help to understand, which port the swagger service is listening on
 
 
 #### Response codes
