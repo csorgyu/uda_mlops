@@ -10,7 +10,7 @@ The task is creating an automated environment for a bank marketing campaign, whi
 * Documenting service endpoint
 
 
-## Architectural Diagram
+# Architectural Diagram
 During the project I was using the udacity lab environment, which is a virtualized wondows desktop in Azure.
 The Azure ML Studio is available from here through the browser, authentication is set up for me.
 The first thing to do is create a compute instance to run the ipython code on.
@@ -29,7 +29,19 @@ The architectural diagram below shows the high level setup
 ![image](https://user-images.githubusercontent.com/81808810/117540007-69bd2900-b00d-11eb-9294-8bef8b683b95.png)
 
 
-## Key Steps 
+# Overview
+The project consists of 2 major steps:
+* Creating a real-time service endpoint with Auto ML, including
+ * The ML model creation itself
+ * Best model deployment
+ * Enabling monitoring on the service endpoint
+ * Documenting the API with swagger
+ * Testing the endpoint 
+* Creating a scheduled Auto ML pipeline
+ * Including Pipeline build
+ * Pipeline endpoint setup
+ * Scheduled retraining
+## Project steps
 ### Auto ML Experiment
 When setting up an AutoML experiment we need to 
 * Ensure the dataset we want to use is registered in the ML Workspace
@@ -51,23 +63,45 @@ When setting up an AutoML experiment we need to
   * Input format with example payload
   * Request structure
 * Based on this load test can be done
+
+### Dataset 
+* This part of the project is about data acquisition
+* We check the data availability and use that for later training for both tasks
+
 #### Registered dataset is available
 The registered dataset is available, there was no need to import it from the code, from web location, however the name needed to be adjusted.
-##### Code call
+
+#### Code call
 ![image](https://user-images.githubusercontent.com/81808810/117368887-6bc7a080-aec4-11eb-9d21-89c9e41ea18d.png)
 Key elements:
 * The dataset is either already available in the workspace, with the name string as a key or need to be downloaded and added to the workspace
 * Datasets are stored in a blob storage for the workspace and Azure Blob Storage uses key-value pair based lookup  to access the blobs
 * The Code creates a tabular dataset from delimited file in case it is not available 
-##### Availability proof: In workspace
+
+#### Availability proof: In workspace
 ![image](https://user-images.githubusercontent.com/81808810/117365514-abd85480-aebf-11eb-99c9-fc53af1378ab.png)
 * The dataset has actually been added to the workspace, so we just need to reference on that with a matching name
-##### Availability proof: In code, with head check
+
+#### Availability proof: In code, with head check
 ![image](https://user-images.githubusercontent.com/81808810/117365418-8b0fff00-aebf-11eb-970a-20d6938a5a6e.png)
-#### Experiment is shown as completed
-##### Auto ML Config
-The explain best model's paramater's default value is True, however I am setting that up explicitly as a proof.
+* With the take() function we can check the structure of the data, and if necessary can start data cleaning and manual fature engineering step
+
+### Auto ML model training
+* In this case we use Auto ML for model selection
+* This can be the case if we have well known and relatively clean datastes, from the other side we do not have very strong business requirements/we have freedom to choose the model type
+* In this example I do not focus on model selection very strongly, I let Auto ML do that for me: this approach is affordable in rapid prototyping and low value/operational cases only
+* The key focus is selecting a metric, based on which we can compare the different runs of Auto ML and is a basis of comparison
+* The early stopping setting of the Auto ML are also bound to this, if the model metric does not change significantly run after run, the early stopping is triggered
+* This is a balancing act between best model selection and cost savings related to the compute utilized for the multiple runs of model selection
+
+#### Auto ML Config
 ![image](https://user-images.githubusercontent.com/81808810/117369031-a3364d00-aec4-11eb-98cd-c07a0b628392.png)
+* The focus metrics are related to the evaluation target metrics, concurrent iterations and experiment timeouts.
+* The evaluation metric is AUC weighted
+ * The AUC is a very typical metric for classification model evaluation
+ * Classic ROC vurves are agostic to the imbalance of the class skew
+ * Weighted AUC can focus on certain area of the curve (like high recall, see source : https://stats.stackexchange.com/questions/158915/what-is-the-difference-between-area-under-roc-and-weighted-area-under-roc) 
+* We cannot build more than 4 node clusters, so the max_concurrent_iterations appropriate value is 4
 ##### Auto ML Run shows completed in the code
 ![image](https://user-images.githubusercontent.com/81808810/117369748-a847cc00-aec5-11eb-84d3-1b0b17c0c197.png)
 ##### In notebook programmatically: Auto ML Runs generator has the copleted item as a most recent element
