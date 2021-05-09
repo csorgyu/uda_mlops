@@ -61,6 +61,7 @@ Key elements:
 * The Code creates a tabular dataset from delimited file in case it is not available 
 ##### Availability proof: In workspace
 ![image](https://user-images.githubusercontent.com/81808810/117365514-abd85480-aebf-11eb-99c9-fc53af1378ab.png)
+* The dataset has actually been added to the workspace, so we just need to reference on that with a matching name
 ##### Availability proof: In code, with head check
 ![image](https://user-images.githubusercontent.com/81808810/117365418-8b0fff00-aebf-11eb-970a-20d6938a5a6e.png)
 #### Experiment is shown as completed
