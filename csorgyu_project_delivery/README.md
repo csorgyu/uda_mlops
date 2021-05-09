@@ -42,7 +42,7 @@ The project consists of 2 major steps:
  * Pipeline endpoint setup
  * Scheduled retraining
 
-## PROJECT STEPS
+# PROJECT STEPS
 
 ## REAL TIME ENDPOINT 
 When setting up an AutoML experiment we need to 
@@ -258,6 +258,9 @@ Key elements:
 *  GET shows the default answer if service is healthy and the format of the HTTP responsee json payload
 *  POST/score shows the input payload with example values and the response code/response json structure
 
+#### Response codes
+![image](https://user-images.githubusercontent.com/81808810/117543221-27e7af00-b01c-11eb-94fa-c9d00505e590.png)
+
 #### Swagger logs
 ![image](https://user-images.githubusercontent.com/81808810/117545272-50c07200-b025-11eb-8bbe-a0e3628d9df1.png)
 
@@ -265,11 +268,11 @@ Key elements:
 * The docker desktop gives help to understand, which port the swagger service is listening on
 
 
-#### Response codes
-![image](https://user-images.githubusercontent.com/81808810/117543221-27e7af00-b01c-11eb-94fa-c9d00505e590.png)
-
 #### HTTP Client
-![image](https://user-images.githubusercontent.com/81808810/117543253-42218d00-b01c-11eb-82b2-8bbe077aa8c8.png)
+![image](https://user-images.githubusercontent.com/81808810/117575682-32b94700-b0e3-11eb-85e9-c412d90ffaaa.png)
+
+* HTTP client shows there was a request to serve the */swagger.json*/ file from local folder and the status was success (200)
+* This was trhe result of me accessing the URI from the swagger browser
 
 #### *VALIDATION02 - service endpoint consumption*
 ![image](https://user-images.githubusercontent.com/81808810/117378064-f7e1c400-aed4-11eb-8246-63be2e056329.png)
@@ -283,14 +286,25 @@ Key elements:
 * Tokens can be regenerated, this is a typical maintenance task for MLOPS
 
 
-### ML pipeline
-* AutoML pipeline is used for a reproducible trainings, this is very useful, if we want to control model decay
+## ML PIPELINE AUTOMATION
+
+* In this project section we focus on automated ML workflows, which may be recurring maintenance tasks for the model service and model objects
+* This AutoML pipeline is used for a reproducible trainings, this is very useful, if we want to control model decay
 * Batch inference pipelines can be set up and retraining ones as well
 * The current implementation is a retraining pipeline, that runs every 24 hours
 * The pipeline is created from code, can be verified from the UI
 * The video shows the details of the pipeline being deployed.
 * The screenshots below show, that the retraining is scheduled
-#### Pipeline has been created
+
+
+### CREATING PIPELINE
+
+* In this task we produce a pipeline with one single step: an AutoML based training on a dataste
+* We expect the training to be done many times, and the scenario is making sure, that our model is up to date with the latest data and is less exposed to model decay
+* Dependent how rapsodically the base data changes and also how often  and with wath usage patterns the model is consumed, this can be done with different schedules
+* Pipelines steps are daisy chained together with outputs, so one step can consume and process further the next step
+
+
 ![image](https://user-images.githubusercontent.com/81808810/117543114-bad41980-b01b-11eb-8bfa-3627ec86d732.png)
 
 
