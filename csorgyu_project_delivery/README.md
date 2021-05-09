@@ -100,17 +100,23 @@ Key elements:
 * The focus metrics are related to the evaluation target metrics, concurrent iterations and experiment timeouts.
 * The evaluation metric is AUC weighted
  * The AUC is a very typical metric for classification model evaluation
- * Classic ROC vurves are agostic to the imbalance of the class skew
+ * Classic ROC curves are agostic to the imbalance of the class skew
  * Weighted AUC can focus on certain area of the curve (like high recall, see source : https://stats.stackexchange.com/questions/158915/what-is-the-difference-between-area-under-roc-and-weighted-area-under-roc) 
 * We cannot build more than 4 node clusters, so the max_concurrent_iterations appropriate value is 4
+* The featurization is set to auto
 
-#### Auto ML Run completed proof - workspace
+#### Auto ML Run completed proof - notebook execution
 ![image](https://user-images.githubusercontent.com/81808810/117369748-a847cc00-aec5-11eb-84d3-1b0b17c0c197.png)
 
-* 
+* The notebook indicates the execution has successfully finished
 
 ##### Auto ML Run completed proof - code
 ![image](https://user-images.githubusercontent.com/81808810/117369826-c7465e00-aec5-11eb-9b52-35d2f30e8951.png)
+
+* The output of the  *get_runs()* call is a generator object
+* We can get the items with the *next()* function
+* The output shows the experiment level details: the parent run id and the experiment name
+* If we want to get more details, we need to go to the clild level 
 
 ##### In workspace
 The result shows the best model is a voting ensamble
