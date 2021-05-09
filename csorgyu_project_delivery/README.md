@@ -55,6 +55,10 @@ When setting up an AutoML experiment we need to
 The registered dataset is available, there was no need to import it from the code, from web location, however the name needed to be adjusted.
 ##### Code call
 ![image](https://user-images.githubusercontent.com/81808810/117368887-6bc7a080-aec4-11eb-9d21-89c9e41ea18d.png)
+Key elements:
+* The dataset is either already available in the workspace, with the name string as a key or need to be downloaded and added to the workspace
+* Datasets are stored in a blob storage for the workspace and Azure Blob Storage uses key-value pair based lookup  to access the blobs
+* The Code creates a tabular dataset from delimited file in case it is not available 
 ##### Availability proof: In workspace
 ![image](https://user-images.githubusercontent.com/81808810/117365514-abd85480-aebf-11eb-99c9-fc53af1378ab.png)
 ##### Availability proof: In code, with head check
