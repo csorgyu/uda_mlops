@@ -110,7 +110,7 @@ Key elements:
 
 * The notebook indicates the execution has successfully finished
 
-##### Auto ML Run completed proof - code
+#### Auto ML Run completed proof - code
 ![image](https://user-images.githubusercontent.com/81808810/117369826-c7465e00-aec5-11eb-9b52-35d2f30e8951.png)
 
 * The output of the  *get_runs()* call is a generator object
@@ -118,9 +118,16 @@ Key elements:
 * The output shows the experiment level details: the parent run id and the experiment name
 * If we want to get more details, we need to go to the clild level 
 
-##### In workspace
-The result shows the best model is a voting ensamble
+#### Auto ML Run completed proof - workspace UI
 ![image](https://user-images.githubusercontent.com/81808810/117369908-e349ff80-aec5-11eb-8597-d91757da1c71.png)
+
+* The AutoML run parent level shows a summary of the runs, including properties best model summary and run summary
+* The status in the upper left shows the Auto ML Experiment has completed
+* We could check the child runs, but the best model is highlighted in the upper right
+* This shows a Voting Ensemble model, which is a combination of several models, providing a result as a vote
+* The AUC score is 0.94644 so this assumes a very strong model
+
+
 #### Best model
 The best model is a voting ensemble, wit 0.947 AUC, which is surprisingly high.
 ![image](https://user-images.githubusercontent.com/81808810/117370369-94e93080-aec6-11eb-84a8-45af03b72fad.png)
