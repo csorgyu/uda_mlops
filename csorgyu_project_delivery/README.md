@@ -321,17 +321,33 @@ Key elements:
 
 #### Pipeline endpoint has been created
 ##### From UI
-![image](https://user-images.githubusercontent.com/81808810/117543341-afcdb900-b01c-11eb-9ebb-9c82df14bb6c.png)
+![image](https://user-images.githubusercontent.com/81808810/117576713-2afba180-b0e7-11eb-98e8-f63467b44507.png)
 
 * The Workspace supports UI help to check on active pipeline runs (with status) and pipeline endpoints too
 * Similarly to experiments not using pipelines the main run details and the child run details can be observed
+* The UI shows, that I used a different experiment for pipeline based run as for real time endpoint
 
 ##### From code
-![image](https://user-images.githubusercontent.com/81808810/117543446-32ef0f00-b01d-11eb-999e-886cafb6debf.png)
+![image](https://user-images.githubusercontent.com/81808810/117576750-5aaaa980-b0e7-11eb-948e-6f92f7e24f98.png)
+
+* The execution summary shows, that the run has ended
+* It also references on the
+  * Start and end time
+  * The log locations on the blob storage
+  * And the pipeline run ID itself 
+* The code based check is important, as the typical use case for ML pipelines in scheduled autoated execution with no human manual check in the loop
 
 
-#### Dataset and Aut ML module
-![image](https://user-images.githubusercontent.com/81808810/117543297-7eed8400-b01c-11eb-83cb-9ebb6d3b211c.png)
+#### Checking details from code
+![image](https://user-images.githubusercontent.com/81808810/117576854-ac533400-b0e7-11eb-9cdf-f93240cf7733.png)
+
+* The run details of child runs can be accessed programmatically
+* The API call deserializes the results and can be consumed in a regular dataframe
+* In this specific example pipeline child runs are in columns and scores are in rows
+* Further post processing is possible based on dataset like
+  * Selecting a model based on a specific metric (not necessarily the one we optimized the run for)
+  * Setting up alerts if specific metrics are not up to par 
+
 
 
 #### REST API Active status
