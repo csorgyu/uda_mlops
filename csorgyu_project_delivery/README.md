@@ -43,7 +43,8 @@ The project consists of 2 major steps:
  * Scheduled retraining
 
 ## PROJECT STEPS
-### Auto ML Experiment
+
+## REAL TIME ENDPOINT 
 When setting up an AutoML experiment we need to 
 * Ensure the dataset we want to use is registered in the ML Workspace
 * We have a compute instance where we can run the AutoML steps on
@@ -64,8 +65,6 @@ When setting up an AutoML experiment we need to
   * Input format with example payload
   * Request structure
 * Based on this load test can be done
-
-## REAL TIME ENDPOINT 
 
 ### DATASET
 * This part of the project is about data acquisition
@@ -174,29 +173,33 @@ Key elements:
 
 * Azure generates an entry script automatically, so directly deploying the model from the run info will not require entry script.
 * We enable authentication, so we can grant the service endpoint token based authentication protection
-* We deploy to Azure Container Images, but deployment can happen on Azure Kubernetes too
+* We deploy to Azure Container Instances, but deployment can happen on Azure Kubernetes too
 
-#### Enabling authentication and using ACI 
-![image](https://user-images.githubusercontent.com/81808810/117372735-4f2e6700-aeca-11eb-9ffc-3e0f294404c0.png)
-#### Deployment successful
-![image](https://user-images.githubusercontent.com/81808810/117372895-94eb2f80-aeca-11eb-8ebf-edab0eb3fb7e.png)
+#### Checking successful deployment - UI
+![image](https://user-images.githubusercontent.com/81808810/117574291-bcb1e180-b0dc-11eb-986a-310f3ab0908a.png)
 
-### Enabling Application Insights
+* After the deployment we can check the service endpoints for the new deployment we created
+* When clicking on the name we see, that deployment state is healthy, it is using a model ID Auto ML generated
+* The same model can be seen in the models section
+
+### ENABLING APPLICATION INSIGHTS
+
+#### Enabling application insights from code
+![image](https://user-images.githubusercontent.com/81808810/117376714-02e72500-aed2-11eb-839f-58d029b1169d.png)
+
+#### PApplication Insights enabled - UI 
+Healthy endpoint
+![image](https://user-images.githubusercontent.com/81808810/117377062-b05a3880-aed2-11eb-8b25-d35e6fe3c12c.png)
+
+And enabled application insights
+![image](https://user-images.githubusercontent.com/81808810/117377114-c7008f80-aed2-11eb-8f6e-e1b5eacc90c1.png)
+
 #### Ensure az installed
 ![image](https://user-images.githubusercontent.com/81808810/117373357-5b66f400-aecb-11eb-9704-cc18269a1348.png)
 #### Ensure python SDK for azure is installed with ipython
 ![image](https://user-images.githubusercontent.com/81808810/117373617-e1833a80-aecb-11eb-8895-94504ffe149d.png)
 #### Create virtual environment
 ![image](https://user-images.githubusercontent.com/81808810/117373931-79812400-aecc-11eb-8cae-89fe8a451621.png)
-#### Enabling application insights from code
-![image](https://user-images.githubusercontent.com/81808810/117376714-02e72500-aed2-11eb-839f-58d029b1169d.png)
-
-#### Proof for application insights being enabled
-Healthy endpoint
-![image](https://user-images.githubusercontent.com/81808810/117377062-b05a3880-aed2-11eb-8b25-d35e6fe3c12c.png)
-
-And enabled application insights
-![image](https://user-images.githubusercontent.com/81808810/117377114-c7008f80-aed2-11eb-8f6e-e1b5eacc90c1.png)
 
 #### Proof in the logs.py output
 ![image](https://user-images.githubusercontent.com/81808810/117377284-35dde880-aed3-11eb-8382-15b54cef0f83.png)
