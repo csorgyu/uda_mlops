@@ -401,18 +401,23 @@ Key elements:
 
 ### SCHEDULED RUN
 #### Scheduling a run from code
-![image](https://user-images.githubusercontent.com/81808810/117577578-a3179680-b0ea-11eb-8955-0d97ef242856.png)
+![image](https://user-images.githubusercontent.com/81808810/117578022-a9a70d80-b0ec-11eb-8ed6-bafddc2fe5fc.png)
 
 * We can set up scheduled runs
 * Currently we have a training pipeline, recurring training is useful if we want to control for model decay
 * If we want to do scoring in that case batch inference pipelines need to be used
+* Here we want to sue the experiment name we created in the previous section
 
 #### Schedule is ready
+![image](https://user-images.githubusercontent.com/81808810/117578197-816bde80-b0ed-11eb-9bc2-2bbd701a044c.png)
+
+* The latest pipeline scheduled by the trigger has finished
+* We have a recurring training now every 24 hours
 
 
 
 ## Screen Recording
-*https://youtu.be/1HxDKyLO73k
+
 
 ## Standout Suggestions
 Future improvement steps:
