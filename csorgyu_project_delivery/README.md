@@ -255,6 +255,7 @@ Key elements:
   * In my specific example swagger is taking requests in the 8000 port, 8080 is internal setting
   * I have also started a python based HTTP client which serves files from locally, specifically the swagger.json
   * Once the serve.py retreived the file from the file system, swagger can showit on the user frendly UI
+  * Swagger UI needs to access HTTP client on HTTP and not on HTTPS
 *  GET shows the default answer if service is healthy and the format of the HTTP responsee json payload
 *  POST/score shows the input payload with example values and the response code/response json structure
 
@@ -273,6 +274,7 @@ Key elements:
 
 * HTTP client shows there was a request to serve the */swagger.json*/ file from local folder and the status was success (200)
 * This was trhe result of me accessing the URI from the swagger browser
+* The HTTP client is running on port 9001 not to conflict with the swagger endpoint
 
 #### *VALIDATION02 - service endpoint consumption*
 ![image](https://user-images.githubusercontent.com/81808810/117378064-f7e1c400-aed4-11eb-8246-63be2e056329.png)
