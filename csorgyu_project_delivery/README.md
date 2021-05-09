@@ -304,13 +304,28 @@ Key elements:
 * Dependent how rapsodically the base data changes and also how often  and with wath usage patterns the model is consumed, this can be done with different schedules
 * Pipelines steps are daisy chained together with outputs, so one step can consume and process further the next step
 
+#### Creating pipeline from code
+![image](https://user-images.githubusercontent.com/81808810/117576167-0ef70080-b0e5-11eb-951a-c57fa583b507.png)
 
+![image](https://user-images.githubusercontent.com/81808810/117576064-b162b400-b0e4-11eb-8a54-6f618018e453.png)
+
+* The pipeline takes the Auto ML config as an input, in this specific case this is the same input we used for the real-time endpoint
+* The step name is *automl_module*
+* Output definitions contain where the models and the metrics can be added - these are stored on the blob storage backend
+* The step is set to be able to reused 
+* A pipeline is created andthe single step is added
+
+#### Pipeline created - UI check 
 ![image](https://user-images.githubusercontent.com/81808810/117543114-bad41980-b01b-11eb-8bfa-3627ec86d732.png)
 
 
 #### Pipeline endpoint has been created
 ##### From UI
 ![image](https://user-images.githubusercontent.com/81808810/117543341-afcdb900-b01c-11eb-9ebb-9c82df14bb6c.png)
+
+* The Workspace supports UI help to check on active pipeline runs (with status) and pipeline endpoints too
+* Similarly to experiments not using pipelines the main run details and the child run details can be observed
+
 ##### From code
 ![image](https://user-images.githubusercontent.com/81808810/117543446-32ef0f00-b01d-11eb-999e-886cafb6debf.png)
 
