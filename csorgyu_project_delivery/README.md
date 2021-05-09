@@ -161,6 +161,7 @@ Key elements:
 * It shows that the ensemble was built on gradient boosting algorythms and tree based algorythms
 
 ### MODEL DEPLOYMENT
+
 #### Selecting best model from code
 ![image](https://user-images.githubusercontent.com/81808810/117574049-82941000-b0db-11eb-8568-232b357d1f10.png)
 
@@ -241,12 +242,26 @@ Key elements:
 * The first check is that the logs for the service are available
 * We make a service call to the endpoint and get the latest logs from the service
 
-### Documentation
-#### Swagger runs locally and shows the API details
+### DOCUMENTATION
+#### Swagger showing API details
 ![image](https://user-images.githubusercontent.com/81808810/117543197-13a3b200-b01c-11eb-8981-b545e5ce4213.png)
+
+* With swagger one can analyze the endpoint consumption ways: http get and post details
+* To achieve this there are a couple of things need to be made
+  * The swagger.json file needs to be downloaded from the service endpoint locally
+  * A docker image, that runs swagger need to be downloade, the image need to be started on the appropriate port
+  * This is implemented in the swagger.sh, once the json file is downloaded
+  * The port configuration needs to be set up
+  * In my specific example swagger is taking requests in the 8000 port, 8080 is internal setting
+  * I have also started a python based HTTP client which serves files from locally, specifically the swagger.json
+  * Once the serve.py retreived the file from the file system, swagger can showit on the user frendly UI
+*  GET shows the default answer if service is healthy and the format of the HTTP responsee json payload
+*  POST/score shows the input payload with example values and the response code/response json structure
 
 #### Swagger logs
 ![image](https://user-images.githubusercontent.com/81808810/117545272-50c07200-b025-11eb-8bbe-a0e3628d9df1.png)
+
+
 
 #### Response codes
 ![image](https://user-images.githubusercontent.com/81808810/117543221-27e7af00-b01c-11eb-94fa-c9d00505e590.png)
