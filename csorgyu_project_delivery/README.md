@@ -417,10 +417,14 @@ Key elements:
 
 
 ## Screen Recording
+https://youtu.be/0mA8XTVLO6E
 
+Second attempt,coverinng model section too
 
 ## Standout Suggestions
 Future improvement steps:
-* The models could be used in batch inference pipelines, this is not covered
-* Detailed model monitoring based on Application Insights
-* Load testing
+* Creating batch inference pipeline for the new data
+* Detailed service endpoint monitoring based on Application Insights for real-time endpoint
+* Systematic monitoring of the pipeline retraining
+* Model performance check based on daily retraining and making sure all metrics stay within a range
+* Load testing of the models
