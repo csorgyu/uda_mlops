@@ -315,9 +315,6 @@ Key elements:
 * The step is set to be able to reused 
 * A pipeline is created andthe single step is added
 
-#### Pipeline created - UI check 
-![image](https://user-images.githubusercontent.com/81808810/117543114-bad41980-b01b-11eb-8bfa-3627ec86d732.png)
-
 
 #### Pipeline endpoint has been created
 ##### From UI
@@ -337,6 +334,7 @@ Key elements:
   * And the pipeline run ID itself 
 * The code based check is important, as the typical use case for ML pipelines in scheduled autoated execution with no human manual check in the loop
 
+### CHECKING PIPELINE RESULTS
 
 #### Checking details from code
 ![image](https://user-images.githubusercontent.com/81808810/117576854-ac533400-b0e7-11eb-9cdf-f93240cf7733.png)
@@ -348,29 +346,69 @@ Key elements:
   * Selecting a model based on a specific metric (not necessarily the one we optimized the run for)
   * Setting up alerts if specific metrics are not up to par 
 
+#### Selecting best model
+![image](https://user-images.githubusercontent.com/81808810/117577143-e113bb00-b0e8-11eb-91e8-1f5d98346e43.png)
+
+* Best model can be selected based on the metric we used for the autoML config
+* This is retrieving the model from the backend storage in the format of the pickle file
+* The best model structure can be visualized 
+
+#### Checking steps from code
+![image](https://user-images.githubusercontent.com/81808810/117577204-1d471b80-b0e9-11eb-80e3-0841d4ba7c74.png)
+
+* As automated ML runs on many model types, and with additional featurization, it is important to understand the actually execued steps
+* These can be observed by code
+* From the other side if needed these can be later further optimized by hyperdrive, once the method is understood and explained
+
+#### Testing the best model
+![image](https://user-images.githubusercontent.com/81808810/117577259-613a2080-b0e9-11eb-8c2b-ded57214ec7f.png)
+
+* Code based test is important for the model
+* Before we start using the actual run and maybe retrain the model the same way, we need to be sure, that the errors are in an appropriate distribution in the confusion matrix, as the example shows
+* These outputs are stored on the blob but can be exposed to other storages where BI can be added for operatiosn team or business
+
+### CHECKING DETAILS ON UI
+![image](https://user-images.githubusercontent.com/81808810/117577638-e6720500-b0ea-11eb-83b9-09cdf906ba7e.png)
+
+* The screensho shows the 1 single step of the pipeline, that is executed, this is the automl step, on the top of the dataset
+* We can get the pipeline ID from here
+* We can see the last run time and last run status
 
 
-#### REST API Active status
+### CHECKING REST ENDPOINT FOR PIPELINE
+
+#### REST API Endpoint status - UI
 ![image](https://user-images.githubusercontent.com/81808810/117543353-c07e2f00-b01c-11eb-901b-b91fd9ba97b5.png)
 
-
-#### Jupyter steps
-![image](https://user-images.githubusercontent.com/81808810/117543635-f2dc5c00-b01d-11eb-9b12-961b0466d170.png)
-
-![image](https://user-images.githubusercontent.com/81808810/117543650-025ba500-b01e-11eb-93bc-2d1b6261937e.png)
-
-##### Code triggered run finished
-![image](https://user-images.githubusercontent.com/81808810/117543533-88c3b700-b01d-11eb-813b-3ebafabc7131.png)
-
-![image](https://user-images.githubusercontent.com/81808810/117543558-a3962b80-b01d-11eb-844f-7c616367c8a1.png)
-
-![image](https://user-images.githubusercontent.com/81808810/117543592-cc1e2580-b01d-11eb-9044-2f7370ad444a.png)
+* The REST API status can be checked on the UI
+* This shows that the pipeline being in active status
+* The pipleine ID can be obtained either from here or from code
 
 
-#### Scheduled run
-![image](https://user-images.githubusercontent.com/81808810/117545655-ff18e700-b026-11eb-9d0a-d07cfbe88c9f.png)
+#### REST API Endpoint status - code
+![image](https://user-images.githubusercontent.com/81808810/117577394-e291b300-b0e9-11eb-9717-9db8b4e7b3f6.png)
 
-![image](https://user-images.githubusercontent.com/81808810/117545763-72baf400-b027-11eb-9889-067877000f1f.png)
+* The endpoint status can be checked in an automated manner
+* Here the call also shows status as *Active* , should that be different automated alerts could be triggered
+
+#### Checking last run status
+![image](https://user-images.githubusercontent.com/81808810/117577488-3c927880-b0ea-11eb-81c3-8c3083315c0c.png)
+
+* This can be important, if we want to monitor stuck or failed pipelines
+* Those would leave our service in an undesirabled state
+* So alerts need to be established on those too
+
+
+### SCHEDULED RUN
+#### Scheduling a run from code
+![image](https://user-images.githubusercontent.com/81808810/117577578-a3179680-b0ea-11eb-8955-0d97ef242856.png)
+
+* We can set up scheduled runs
+* Currently we have a training pipeline, recurring training is useful if we want to control for model decay
+* If we want to do scoring in that case batch inference pipelines need to be used
+
+#### Schedule is ready
+
 
 
 ## Screen Recording
