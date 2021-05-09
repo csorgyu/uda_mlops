@@ -96,16 +96,22 @@ Key elements:
 
 #### Auto ML Config
 ![image](https://user-images.githubusercontent.com/81808810/117369031-a3364d00-aec4-11eb-98cd-c07a0b628392.png)
+
 * The focus metrics are related to the evaluation target metrics, concurrent iterations and experiment timeouts.
 * The evaluation metric is AUC weighted
  * The AUC is a very typical metric for classification model evaluation
  * Classic ROC vurves are agostic to the imbalance of the class skew
  * Weighted AUC can focus on certain area of the curve (like high recall, see source : https://stats.stackexchange.com/questions/158915/what-is-the-difference-between-area-under-roc-and-weighted-area-under-roc) 
 * We cannot build more than 4 node clusters, so the max_concurrent_iterations appropriate value is 4
-##### Auto ML Run shows completed in the code
+
+#### Auto ML Run completed proof - workspace
 ![image](https://user-images.githubusercontent.com/81808810/117369748-a847cc00-aec5-11eb-84d3-1b0b17c0c197.png)
-##### In notebook programmatically: Auto ML Runs generator has the copleted item as a most recent element
+
+* 
+
+##### Auto ML Run completed proof - code
 ![image](https://user-images.githubusercontent.com/81808810/117369826-c7465e00-aec5-11eb-9b52-35d2f30e8951.png)
+
 ##### In workspace
 The result shows the best model is a voting ensamble
 ![image](https://user-images.githubusercontent.com/81808810/117369908-e349ff80-aec5-11eb-8597-d91757da1c71.png)
