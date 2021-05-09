@@ -128,11 +128,30 @@ Key elements:
 * The AUC score is 0.94644 so this assumes a very strong model
 
 
-#### Best model
-The best model is a voting ensemble, wit 0.947 AUC, which is surprisingly high.
+#### Best model scores - summary
 ![image](https://user-images.githubusercontent.com/81808810/117370369-94e93080-aec6-11eb-84a8-45af03b72fad.png)
+
+* If we click on the paren run page to the *View all other metrics* link we will see the other metrics associated to the model
+* In certain use cases we need to use other metrics (too) for explaining the model value to the business, especially if the price tag to certain error types is under focus
+* Even though the Auto ML uses one mertic for comparing the multiple child runs, we want to make sure, that other metrics are aligned with business expectations
+
+#### Best model scores - further visual evaluation
+![image](https://user-images.githubusercontent.com/81808810/117573741-efa6a600-b0d9-11eb-8da5-c78003f4b92c.png)
+
+* If we click on the actual model, we can see the different scores visually too
+* This helps understanding the characteristics of the model
+
 #### Model explanation
-![image](https://user-images.githubusercontent.com/81808810/117375729-e813b100-aecf-11eb-9d3c-aefc3d387261.png)
+
+![image](https://user-images.githubusercontent.com/81808810/117573805-3b594f80-b0da-11eb-8bb8-0a61f9089526.png)
+
+![image](https://user-images.githubusercontent.com/81808810/117573896-d2260c00-b0da-11eb-8013-6c4f179e3d66.png)
+
+
+* In the model explanation section one finds cohort analysis for the different data elements both on raw and engineered level
+* As Auto ML was run with featurization, this has a key importance to see the impact of the feature engineering and what are the top N features in the raw and the eangineered features
+* These all improve the model "selling points" to business, as stakeholdersa want to see the importance themselves many times, to get an intuition, however model performance in many cases can be improved with features, which have gone through many transformations
+
 
 
 ### Deploying the model
