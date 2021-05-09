@@ -29,7 +29,7 @@ The architectural diagram below shows the high level setup
 ![image](https://user-images.githubusercontent.com/81808810/117540007-69bd2900-b00d-11eb-9294-8bef8b683b95.png)
 
 
-# Overview
+# OVERVIEW
 The project consists of 2 major steps:
 * Creating a real-time service endpoint with Auto ML, including
  * The ML model creation itself
@@ -41,7 +41,8 @@ The project consists of 2 major steps:
  * Including Pipeline build
  * Pipeline endpoint setup
  * Scheduled retraining
-## Project steps
+
+## PROJECT STEPS
 ### Auto ML Experiment
 When setting up an AutoML experiment we need to 
 * Ensure the dataset we want to use is registered in the ML Workspace
@@ -64,7 +65,9 @@ When setting up an AutoML experiment we need to
   * Request structure
 * Based on this load test can be done
 
-### Dataset 
+## REAL TIME ENDPOINT 
+
+### DATASET
 * This part of the project is about data acquisition
 * We check the data availability and use that for later training for both tasks
 
@@ -86,7 +89,7 @@ Key elements:
 ![image](https://user-images.githubusercontent.com/81808810/117365418-8b0fff00-aebf-11eb-970a-20d6938a5a6e.png)
 * With the take() function we can check the structure of the data, and if necessary can start data cleaning and manual fature engineering step
 
-### Auto ML model training
+### AUTO ML TRAINING
 * In this case we use Auto ML for model selection
 * This can be the case if we have well known and relatively clean datastes, from the other side we do not have very strong business requirements/we have freedom to choose the model type
 * In this example I do not focus on model selection very strongly, I let Auto ML do that for me: this approach is affordable in rapid prototyping and low value/operational cases only
@@ -152,16 +155,27 @@ Key elements:
 * As Auto ML was run with featurization, this has a key importance to see the impact of the feature engineering and what are the top N features in the raw and the eangineered features
 * These all improve the model "selling points" to business, as stakeholdersa want to see the importance themselves many times, to get an intuition, however model performance in many cases can be improved with features, which have gone through many transformations
 
+#### Model details
+![image](https://user-images.githubusercontent.com/81808810/117573981-482a7300-b0db-11eb-8d8f-e8114a35cab0.png)
 
+* The image above shows the composition of the ensamble model
+* It shows that the ensemble was built on gradient boosting algorythms and tree based algorythms
 
-### Deploying the model
+### MODEL DEPLOYMENT
 #### Selecting best model from code
-![image](https://user-images.githubusercontent.com/81808810/117371173-ba2a6e80-aec7-11eb-9bac-2b25ad959501.png)
-#### Registering model
-![image](https://user-images.githubusercontent.com/81808810/117371540-581e3900-aec8-11eb-929d-38b0ecf47db4.png)
+![image](https://user-images.githubusercontent.com/81808810/117574049-82941000-b0db-11eb-8568-232b357d1f10.png)
+
+* The best run can be retreived from the code, so we actually get the child ID which we need to focus on
+* As results and the model pkl file itself is stored on the storage using the child ID, this is useful to check
+* It is possible to deploy the model from code, but it is also possible to use the portal and get the best run immediately deployed
+
 #### Deploying model directly from best run
-Azure generates an entry script automatically, so directly deploying the model from the run info will not require entry script.
-![image](https://user-images.githubusercontent.com/81808810/117372526-f5c63800-aec9-11eb-87e1-d771f7a4781c.png)
+![image](https://user-images.githubusercontent.com/81808810/117574192-36959b00-b0dc-11eb-8e2d-c2235ed24f5d.png)
+
+* Azure generates an entry script automatically, so directly deploying the model from the run info will not require entry script.
+* We enable authentication, so we can grant the service endpoint token based authentication protection
+* We deploy to Azure Container Images, but deployment can happen on Azure Kubernetes too
+
 #### Enabling authentication and using ACI 
 ![image](https://user-images.githubusercontent.com/81808810/117372735-4f2e6700-aeca-11eb-9ffc-3e0f294404c0.png)
 #### Deployment successful
