@@ -210,18 +210,36 @@ Key elements:
 *  So basically all details a service needs to be checked about
 *  We can set up further checks in Application Insights
 
-#### Ensure az installed
+### VALIDATING ML SERVICE ENDPOINT
+* Here we are going to run calls from the developer environment to ensure, that the service is in good shape
+* We are checking on the local development resources, after that we will run check scripts locally
+
+#### Environment setup
+##### Ensure az installed
 ![image](https://user-images.githubusercontent.com/81808810/117373357-5b66f400-aecb-11eb-9704-cc18269a1348.png)
-#### Ensure python SDK for azure is installed with ipython
+
+* This is needed, because az based authentication will be run in the background, when running the scripts
+* The active version can be checked from powershell
+
+
+##### Ensure python SDK for azure is installed with ipython
 ![image](https://user-images.githubusercontent.com/81808810/117373617-e1833a80-aecb-11eb-8895-94504ffe149d.png)
-#### Create virtual environment
+
+* The development environment already has the SDK installed
+* This enable local python calls being interpreted
+
+
+##### Create virtual environment
 ![image](https://user-images.githubusercontent.com/81808810/117373931-79812400-aecc-11eb-8cae-89fe8a451621.png)
 
-#### Proof in the logs.py output
-![image](https://user-images.githubusercontent.com/81808810/117377284-35dde880-aed3-11eb-8382-15b54cef0f83.png)
+* This is useful if we want to maintain compatibility between packages and make sure, that our code can always run in the given environment
+* Also we can opt for different environment versions which is useful if we want to do version upgrades systematically
 
-#### Checking Apache Benchmark
-![image](https://user-images.githubusercontent.com/81808810/117378196-324b6100-aed5-11eb-9fd7-6db81494cd9d.png)
+#### *VALIDATION01 - service logs for real-time endpoint*
+![image](https://user-images.githubusercontent.com/81808810/117574825-3fd43700-b0df-11eb-84d2-ec24fb1f75b4.png)
+
+* The first check is that the logs for the service are available
+* We make a service call to the endpoint and get the latest logs from the service
 
 ### Documentation
 #### Swagger runs locally and shows the API details
@@ -236,10 +254,17 @@ Key elements:
 #### HTTP Client
 ![image](https://user-images.githubusercontent.com/81808810/117543253-42218d00-b01c-11eb-82b2-8bbe077aa8c8.png)
 
-
-### Enpoint consumption
-#### Proof of running against the endpoint
+#### *VALIDATION02 - service endpoint consumption*
 ![image](https://user-images.githubusercontent.com/81808810/117378064-f7e1c400-aed4-11eb-8246-63be2e056329.png)
+
+![image](https://user-images.githubusercontent.com/81808810/117575046-6c3c8300-b0e0-11eb-84e8-272483b9d6ee.png)
+
+
+* The consumption is implemented by the endpoint.py file
+* This needs to be amended by the endpoint URI and the token
+* These 2 can be obtained from the Consume tab of rhe endpoint
+* Tokens can be regenerated, this is a typical maintenance task for MLOPS
+
 
 ### ML pipeline
 * AutoML pipeline is used for a reproducible trainings, this is very useful, if we want to control model decay
