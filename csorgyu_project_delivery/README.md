@@ -187,12 +187,28 @@ Key elements:
 #### Enabling application insights from code
 ![image](https://user-images.githubusercontent.com/81808810/117376714-02e72500-aed2-11eb-839f-58d029b1169d.png)
 
-#### PApplication Insights enabled - UI 
-Healthy endpoint
-![image](https://user-images.githubusercontent.com/81808810/117377062-b05a3880-aed2-11eb-8b25-d35e6fe3c12c.png)
+* The code snippet updates the actual service endpoints
+* In the background the PaaS is making changes on service endpoint an it takes ~10 minutes before the service endpoint becomes functional after successful service call
+* In this period the rest endpoint is not enabled, showing null, and service state is Transitioning
+* The *name* parameter need to match the one we used for manual deployment
 
-And enabled application insights
-![image](https://user-images.githubusercontent.com/81808810/117377114-c7008f80-aed2-11eb-8f6e-e1b5eacc90c1.png)
+#### Application Insights enabled - UI 
+![image](https://user-images.githubusercontent.com/81808810/117574632-5fb72b00-b0de-11eb-83b6-c092a8ade4f4.png)
+
+
+* After enabling Application Insights we see the service state healthy again and the rest endpoint is not null anymore
+
+
+![image](https://user-images.githubusercontent.com/81808810/117574651-7493be80-b0de-11eb-80ba-ef216785638c.png)
+
+* Lower on the UI we can see the Application Insights enabled 
+* We can see the application Insigts link, which will provide us by default details about
+  *  failed requests 
+  *  server response time
+  *  server requests
+  *  availability
+*  So basically all details a service needs to be checked about
+*  We can set up further checks in Application Insights
 
 #### Ensure az installed
 ![image](https://user-images.githubusercontent.com/81808810/117373357-5b66f400-aecb-11eb-9704-cc18269a1348.png)
